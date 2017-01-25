@@ -23,6 +23,9 @@ namespace FluentPerson
                     .AddPropertyValue(x => x.LastName, "Haley")
                     .Create();
 
+            Console.Out.Write(person);
+            Console.Out.Write(person2);
+
 
         }
     }

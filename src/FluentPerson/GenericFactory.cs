@@ -21,7 +21,7 @@ namespace FluentPerson
             this._entity = new T();
         }
 
-        public IGenericFactory<T> AddPropertyValue(Expression<Func<T, object>> property, object value)
+        public IGenericFactory<T> AddPropertyValue<TValue>(Expression<Func<T, object>> property, TValue value)
         {
             PropertyInfo propertyInfo = null;
             if (property.Body is MemberExpression)
@@ -32,10 +32,11 @@ namespace FluentPerson
             {
                 propertyInfo = (((UnaryExpression)property.Body).Operand as MemberExpression).Member as PropertyInfo;
             }
-            propertyInfo?.SetValue(_entity, value, null);
+            propertyInfo?.SetValue(_entity, value);
 
             return this;
         }
+
 
         public T Create()
         {

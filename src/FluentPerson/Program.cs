@@ -29,10 +29,10 @@ namespace FluentPerson
             person2.Addresses.Add(
                 GenericFluentFactory<Address>
                 .Init()
-                .AddPropertyValue(x => x.AddressLine1, "123 main st")
-                .AddPropertyValue(x => x.City, "Centennial")
-                .AddPropertyValue(x => x.Country, "USA")
-                .AddPropertyValue(x => x.ZipCode, "80121")
+                .AddPropertyValue<string>(x => x.AddressLine1, "123 main st")
+                .AddPropertyValue<string>(x => x.City, "Centennial")
+                .AddPropertyValue<string>(x => x.Country, "USA")
+                .AddPropertyValue<int>(x => x.ZipCode, 80121)
                 .Create());
                 
             

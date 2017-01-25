@@ -8,7 +8,8 @@ namespace FluentPerson
 {
     public interface IGenericFactory<T>
     {
-        IGenericFactory<T> AddPropertyValue(Expression<Func<T, object>> property, object value);
+        IGenericFactory<T> AddPropertyValue<TValue>(Expression<Func<T, object>> property, TValue value);
+
         T Create();
     }
 }

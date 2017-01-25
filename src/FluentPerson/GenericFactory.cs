@@ -7,13 +7,18 @@ using System.Threading.Tasks;
 
 namespace FluentPerson
 {
-    public class GenericFactory<T> : IGenericFactory<T>
+    public class GenericFactory<T> : IGenericFactory<T> where T : new()
     {
         private readonly T _entity;
 
         public GenericFactory(T entity)
         {
             this._entity = entity;
+        }
+
+        public GenericFactory()
+        {
+            this._entity = new T();
         }
 
         public IGenericFactory<T> AddPropertyValue(Expression<Func<T, object>> property, object value)

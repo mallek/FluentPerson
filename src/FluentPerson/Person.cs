@@ -7,21 +7,19 @@ namespace FluentPerson
 {
     public class Person : IPerson
     {
+        public Person()
+        {
+            this.Addresses = new List<Address>();
+        }
+
         public List<Address> Addresses { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string MiddleName { get; set; }
 
-
-    }
-
-    public class Address
-    {
-        public string AddressLine1 { get; set; }
-        public string AddressLine2 { get; set; }
-        public string City { get; set; }
-        public string Country { get; set; }
-        public string ZipCode { get; set; }
-
+        public override string ToString()
+        {
+            return $"{this.FirstName} {this.MiddleName} {this.LastName}, {this.Addresses.Count} Addresse(s)";
+        }
     }
 }

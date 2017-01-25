@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 
 namespace FluentPerson
 {
-    public static class GenericFluentFactory<T>
+    public static class GenericFluentFactory<T> where T : new()
     {
-        public static IGenericFactory<T> Init(T entity)
+        public static IGenericFactory<T> Init()
         {
-            return new GenericFactory<T>(entity);
+            return new GenericFactory<T>();
         }
     }
 }

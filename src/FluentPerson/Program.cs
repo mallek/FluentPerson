@@ -9,6 +9,21 @@ namespace FluentPerson
     {
         public static void Main(string[] args)
         {
+            IPerson person =
+                PersonFluentFactory
+                    .Init()
+                    .AddFirstName("Travis")
+                    .AddLastName("Haley")
+                    .Create();
+
+            IPerson person2 =
+                GenericFluentFactory<Person>
+                    .Init(new Person())
+                    .AddPropertyValue(x => x.FirstName, "Travis")
+                    .AddPropertyValue(x => x.LastName, "Haley")
+                    .Create();
+
+
         }
     }
 }
